@@ -4,6 +4,8 @@ import learn.springboot.restapis.entities.Course;
 import learn.springboot.restapis.services.CourseServicesImpl;
 import learn.springboot.restapis.services.CoursesService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
@@ -52,6 +54,17 @@ public class ApplicationController {
     Course updateCourse(@RequestBody Course course){
 
         return coursesService.updateCourse(course);
+    }
+
+    @DeleteMapping("courses/{courseId}")
+    ResponseEntity<HttpStatus> deleteCourse(@PathVariable String courseId){
+        try {
+            coursesService.deleteCourse(courseId);
+            return new ResponseEntity<>(HttpStatus.OK);
+        }
+        catch (Exception e){
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }
