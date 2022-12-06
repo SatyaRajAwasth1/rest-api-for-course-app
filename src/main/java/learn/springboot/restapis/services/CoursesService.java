@@ -12,4 +12,6 @@ public interface CoursesService {
     Course getCourseById(String id);
 
     Course addCourse(Course course);
+
+    Course updateCourse(Course course);
 }

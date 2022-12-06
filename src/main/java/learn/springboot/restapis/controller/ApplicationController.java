@@ -47,4 +47,11 @@ public class ApplicationController {
         return coursesService.addCourse(course);
     }
 
+    // updating /editing a course using the id
+    @PutMapping("courses")
+    Course updateCourse(@RequestBody Course course){
+
+        return coursesService.updateCourse(course);
+    }
+
 }

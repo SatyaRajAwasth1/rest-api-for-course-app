@@ -36,4 +36,16 @@ public class CourseServicesImpl implements CoursesService{
 
         return course;
     }
+
+    @Override
+    public Course updateCourse(Course course) {
+        list.forEach ( inCourse -> {
+            if (inCourse.getCourseId().equals(course.getCourseId())){
+                inCourse.setCourseName(course.getCourseName());
+                inCourse.setCourseDetails(course.getCourseDetails());
+            }
+                }
+        );
+        return course;
+    }
 }
