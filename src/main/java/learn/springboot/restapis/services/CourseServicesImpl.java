@@ -29,4 +29,11 @@ public class CourseServicesImpl implements CoursesService{
         }
         return  null;
     }
+
+    @Override
+    public Course addCourse(Course course) {
+        list.add(course);
+
+        return course;
+    }
 }

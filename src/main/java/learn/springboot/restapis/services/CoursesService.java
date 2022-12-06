@@ -10,4 +10,6 @@ public interface CoursesService {
      */
     public List<Course> getCourses();
     Course getCourseById(String id);
+
+    Course addCourse(Course course);
 }

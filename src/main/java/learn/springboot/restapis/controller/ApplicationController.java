@@ -4,10 +4,7 @@ import learn.springboot.restapis.entities.Course;
 import learn.springboot.restapis.services.CourseServicesImpl;
 import learn.springboot.restapis.services.CoursesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
 import java.util.List;
@@ -30,16 +27,24 @@ public class ApplicationController {
     }
 
     @CrossOrigin
+    // get all the courses
     @GetMapping("courses")
     List<Course> getCourses(){
        return coursesService.getCourses();
     }
 
+    // get a course by ID
     @GetMapping("courses/{courseId}")
     Course getCourseById(@PathVariable String courseId){
 
         return coursesService.getCourseById(courseId);
     }
 
+    // adding a course
+    @PostMapping("courses") // takes course by default in JSON Format
+    Course addCourse( @RequestBody Course course){ // content resides in body in POST method
+
+        return coursesService.addCourse(course);
+    }
 
 }
