@@ -11,6 +11,8 @@ This REST API application is a course management tool written using Java and Spr
   + Java 17 (Open JDK)
   + Spring Boot
   + Hibernate JPA
+  #### Frontend
+  + Html and JavaScript (JSON) [to call the API from client]
  #### Database
   + MYSQL database
   
