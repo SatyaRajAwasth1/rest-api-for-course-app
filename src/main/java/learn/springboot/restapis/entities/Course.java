@@ -1,6 +1,13 @@
 package learn.springboot.restapis.entities;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity // making spring know Course is our entity
+@Table(name = "courses") // after adding table name we need to mention the primary key i.e. id
 public class Course {
+    @Id // our courseId is primary key
     private String courseId;
     private String courseName;
     private String courseDetails;
